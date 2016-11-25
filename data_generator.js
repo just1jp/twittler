@@ -4,6 +4,7 @@
  */
 
 // set up data structures
+window.visitor = "just1jp";
 window.streams = {};
 streams.home = [];
 streams.users = {};
@@ -42,8 +43,10 @@ var generateRandomTweet = function(){
   var tweet = {};
   tweet.user = randomElement(users);
   tweet.message = randomMessage();
-  tweet.created_at = new Date();
-  addTweet(tweet);
+  tweet.created_at = moment().calendar();
+  if (tweet.user !== visitor) {
+    addTweet(tweet);  
+  }
 };
 
 for(var i = 0; i < 10; i++){
@@ -52,7 +55,7 @@ for(var i = 0; i < 10; i++){
 
 var scheduleNextTweet = function(){
   generateRandomTweet();
-  setTimeout(scheduleNextTweet, Math.random() * 1500);
+  setTimeout(scheduleNextTweet, Math.random() * 40000);
 };
 scheduleNextTweet();
 
@@ -65,5 +68,6 @@ var writeTweet = function(message){
   var tweet = {};
   tweet.user = visitor;
   tweet.message = message;
+  tweet.created_at = moment().calendar();
   addTweet(tweet);
 };

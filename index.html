@@ -1,27 +1,91 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <script src="jquery.js"></script>
-    <script src="data_generator.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>    
   </head>
   <body>
-    <script>
+    <div id="wallpaper">
+      <img src="img/background.png">
+    </div>
 
-      $(document).ready(function(){
-        var $body = $('body');
-        $body.html('');
+    <div id="header" class="container pt30 pb20">
+      <div class="row">
+        <div class="col-sm-6 col-sm-push-3">
+          <div class="profile-info text-center">
+            <div id="homies" class="text-center">
+              <h4 class="large-txt pink bold">1,589</h4>
+              <h5>homies</h5>
+            </div>
+            <div id="profile-img" class="text-center">
+              <img src="img/justin.jpg">
+            </div>
+            <div id="haters" class="text-center">
+              <h4 class="large-txt pink bold">345</h4>
+              <h5>haters</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-        var index = streams.home.length - 1;
-        while(index >= 0){
-          var tweet = streams.home[index];
-          var $tweet = $('<div></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
-          $tweet.appendTo($body);
-          index -= 1;
-        }
+    <div id="post-msg" class="container mb25">
+      <div class="row">
+        <div class="col-sm-6 col-sm-push-3">
+          <form id="postForm">
+            <input id="postText" type="text" placeholder="What's the good word?"></input><!-- 
+             --><button class="shout-btn reset" href="#" type="submit">Shout</button>
+          </form>
+        </div>
+      </div>
+    </div>
 
-      });
+    <div id="posts" class="container mb40">
+      <div class="row">
+        <div class="col-sm-6 col-sm-push-3">
+          <div class="more-posts mb10"></div>
+          <ul class="feed">
+          </ul>
+          <ul class="user-posts">
+          </ul>
+        </div>
+      </div>
+    </div>
 
-    </script>
+    <div id="footer">
+      <a href="#" id="return-home">
+        <img src="img/twitter.png">
+      </a>
+    </div>
+
+
+    <script src="app.js"></script>
+    <script src="moment.js"></script>
+    <script src="data_generator.js"></script>
   </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
